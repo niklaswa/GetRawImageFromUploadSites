@@ -48,7 +48,7 @@ if (strpos($file,'prntscr') !== false) {
   $filecontent = file_get_contents($mediafirehotlink);
   echo $filecontent;
 } else {
-  $file = base64_decode($_GET['file']);
+  $file = base64_decode($file);
   $filecontent = file_get_contents($file);
   echo $filecontent;
 }
