@@ -6,6 +6,17 @@
  * Time: 12:52
  */
  
+ // Functions
+ 
+function get_string_between($string, $start, $end){
+   $string = " ".$string;
+   $ini = strpos($string,$start);
+   if ($ini == 0) return "";
+   $ini += strlen($start);
+   $len = strpos($string,$end,$ini) - $ini;
+   return substr($string,$ini,$len);
+}
+ 
 $file = ''; // Your Image-Link (e.g. http://prntscr.com/xyz123)
  
 // Caching
@@ -48,7 +59,6 @@ if (strpos($file,'prntscr') !== false) {
   $filecontent = file_get_contents($mediafirehotlink);
   echo $filecontent;
 } else {
-  $file = base64_decode($file);
   $filecontent = file_get_contents($file);
   echo $filecontent;
 }
